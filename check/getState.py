@@ -6,8 +6,9 @@ import logging
 
 def index(request):
 
-    logging.basicConfig(filename='check.log', filemode='a', format='%(asctime)s : %(levelname)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S' )
+    logging.basicConfig(filename='logs/check.log', filemode='a', format='%(asctime)s : %(levelname)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S' )
     logger = logging.getLogger()
+    paramiko.util.log_to_file('logs/check.log')
     
     ## JSON config file
     try:
@@ -60,9 +61,9 @@ def index(request):
     if exit_status == 0:
         output = stdout.read().decode()
         if "FAIL" in output: 
-            return JsonResponse({'status':'true','healthy':'false', 'message':'Errors detected!', 'output':output})
+            return JsonResponse({'status':'true','healthy':'false','output':output})
         else:
-            return JsonResponse({'status':'true','healthy':'true', 'message':'No issues found!', 'output':output})
+            return JsonResponse({'status':'true','healthy':'true','output':output})
     else:
         logger.error("Output error: %s" % exit_status)
         return JsonResponse({'status':'false'})   

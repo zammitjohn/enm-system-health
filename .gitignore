@@ -170,5 +170,4 @@ cython_debug/
 ## misc
 config.json
 secret_key.txt
-check.log
 .DS_Store
