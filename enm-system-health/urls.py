@@ -18,4 +18,5 @@ from django.urls import include, path
 
 urlpatterns = [
     path('check', include('check.urls')),
+    path('result', include('result.urls')),
 ]

@@ -16,6 +16,7 @@ This can be run after an ENM Installation, Upgrade, or Restore from Backup proce
 - File ```secret_key.txt``` must be created in root directory containing a large random value.
 
 ## Endpoints
-| URL    | Action                                                                                          |
-|--------|-------------------------------------------------------------------------------------------------|
-| /check | Runs all the health checks except for ```ombs_backup_healthcheck``` and ```fcaps_healthcheck``` |
+| URL     | Action                                                                                           |
+|---------|--------------------------------------------------------------------------------------------------|
+| /check  | Runs all the health checks except for ```ombs_backup_healthcheck``` and ```fcaps_healthcheck```. |
+| /result | Get result from the last health check.                                                           |
