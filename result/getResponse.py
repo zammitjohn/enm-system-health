@@ -18,7 +18,7 @@ def index(request):
     ## Response
     if exit_status == 0:
         output = stdout.read().decode()
-        if "Successfully Completed ENM System Healthcheck" in output:
+        if "Successfully Completed ENM System Healthcheck" or "ENM System Healthcheck errors" in output:
             if "FAIL" in output: 
                 return JsonResponse({'status':'true','healthy':'false','output':output})
             else:
